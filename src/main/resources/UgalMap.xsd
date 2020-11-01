@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://eu.crystalsystem.ugalmap.model"
+	xmlns="http://eu.crystalsystem.ugalmap.model"
+	xmlns:ugal="http://eu.crystalsystem.ugalmap.model">
+
+<xs:element name="Building" type="ugal:Building"/>
+  <xs:complexType name="Building">
+    <xs:sequence>
+      <xs:element name="buildingId" type="xs:int"/>
+      <xs:element name="coordinates" type="ugal:Coordinates"/>
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:element name="BuildingEntity" type="ugal:BuildingEntity"/>
+  <xs:complexType name="BuildingEntity">
+    <xs:sequence>
+      <xs:element name="buildingEntityId" type="xs:int"/>
+      <xs:element name="building" type="ugal:Building"/>  
+	  <xs:element name="entity" type="ugal:Entity"/> 
+    </xs:sequence>
+  </xs:complexType>
+
+
+<xs:element name="Coordinates" type="ugal:Coordinates"/>
+  <xs:complexType name="Coordinates">
+    <xs:sequence>
+      <xs:element name="coordinatesId" type="xs:int"/>
+      <xs:element name="coordinatesLatitude" type="xs:double"/>
+      <xs:element name="coordinatesLongitute" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+<xs:element name="Dictionary" type="ugal:Dictionary"/>
+  <xs:complexType name="Dictionary">
+    <xs:sequence>
+      <xs:element name="dictionaryId" type="xs:int"/>
+      <xs:element name="dictionaryTranslatedValue" type="xs:string"/>
+      <xs:element name="dictionaryLabelValueType" type="xs:string"/>
+	  <xs:element name="language" type="ugal:Language"/>
+	  <xs:element name="valueLabel" type="ugal:Label"/>
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:element name="Entity" type="ugal:Entity"/>
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element name="entityId" type="xs:int"/>
+      <xs:element name="entityType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+ 
+ 
+<xs:element name="EntityLabel" type="ugal:EntityLabel"/>
+  <xs:complexType name="EntityLabel">
+    <xs:sequence>
+      <xs:element name="entityLabelId" type="xs:int"/>
+      <xs:element name="entityLabelType" type="xs:string"/>
+	  <xs:element name="label" type="ugal:Label"/>
+	  <xs:element name="value" type="ugal:Value"/>
+    </xs:sequence>
+  </xs:complexType>  
+
+<xs:element name="Label" type="ugal:Label"/>
+  <xs:complexType name="Label">
+    <xs:sequence>
+      <xs:element name="labelId" type="xs:int"/>
+      <xs:element name="labelName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>  
+
+<xs:element name="Language" type="ugal:Language"/>
+  <xs:complexType name="Language">
+    <xs:sequence>
+      <xs:element name="languageId" type="xs:int"/>
+      <xs:element name="languageName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>  
+  
+
+<xs:element name="Role" type="ugal:Role"/>
+  <xs:complexType name="Role">
+    <xs:sequence>
+      <xs:element name="roleId	" type="xs:int"/>
+      <xs:element name="roleName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>  
+
+
+<xs:element name="Schedule" type="ugal:Schedule"/>
+  <xs:complexType name="Schedule">
+    <xs:sequence>
+      <xs:element name="scheduleId" type="xs:int"/>
+      <xs:element name="scheduleTimeStart" type="xs:time"/>
+	  <xs:element name="scheduleTimeEnd" type="xs:time"/>
+	  <xs:element name="entity" type="ugal:Entity"/>
+    </xs:sequence>
+  </xs:complexType>  
+
+<xs:element name="User" type="ugal:User"/>
+  <xs:complexType name="User">
+    <xs:sequence>
+   	  <xs:element name="userId" type="xs:int" />
+      <xs:element name="userFirstname" type="xs:string"/>
+      <xs:element name="userLastname" type="xs:string"/>
+      <xs:element name="userEmail" type="xs:string"/>
+      <xs:element name="userActive" type="xs:string"/>
+	  <xs:element name="role" type="ugal:Role"/>
+	</xs:sequence>
+  </xs:complexType>  
+
+
+<xs:element name="Value" type="ugal:Value"/>
+  <xs:complexType name="Value">
+    <xs:sequence>
+    <xs:element name="valueId" type="xs:int"/>
+      <xs:element name="valueContent" type="xs:string"/>
+	  <xs:element name="valueType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>  
+ 
+</xs:schema>

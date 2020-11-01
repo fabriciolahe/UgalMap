@@ -1,0 +1,46 @@
+#
+#Data base connection
+#
+spring:
+  jackson.serialization.fail-on-empty-beans: false
+  datasource:
+    url: jdbc:mysql://192.168.31.110:3306/ugalmap2?useUnicode=yes&characterEncoding=UTF-8
+    username: ugalmap2
+    password: password
+  #thymeleaf .html files route
+  thymeleaf:
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: LEGACYHTML5
+    check-template-location: true
+  #allow multipart-form-data
+  servlet:
+    multipart:
+      max-file-size: -1
+      enabled: true
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+  #show the hibernate interogations
+  jpa:
+    show-sql: true
+    properties.hibernate.format_sql: true
+  data:
+    rest:
+      base-path: /repo
+
+server:
+  port: 8083
+  servlet:
+    context-path: /ugalmap/api
+log4j:
+  logger:
+    org:
+      thymeleaf:
+        TemplateEngine:
+          cache:
+            TEMPLATE_CACHE: TRACE
+          CONFIG: TRACE
+          TIMER: TRACE
